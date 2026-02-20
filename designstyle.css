@@ -1,0 +1,611 @@
+:root {
+    --primary-color: #D4A373;
+    --bg-color: #FEFAE0;
+    --accent-color: #BC6C25;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* تنسيق عام للناف بار */
+.navbar {
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+}
+
+.custom-nav-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* يمنع نزول العناصر تحت بعض */
+    padding: 0 10px; /* مسافة يمين وشمال ثابتة */
+
+}
+
+/* تنسيق القائمة الأفقية */
+.navbar-nav-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px; /* المسافة بين العناصر */
+}
+
+.navbar-nav-inline .nav-link {
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+.navbar-nav-inline .nav-link {
+    position: relative;
+    transition: 0.3s;
+}
+.navbar-nav-inline .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: 0.3s;
+}
+.navbar-nav-inline .nav-link:hover::after {
+    width: 100%;
+}
+/* ضبط اللوجو للموبايل */
+.navbar-brand {
+    font-size: 1.2rem; /* تصغير حجم اللوجو */
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-right: 10px; /* مسافة بسيطة عن الحافة */
+    margin-inline-start: 10px;
+    transition: 0.3s;
+}
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+/* زرار اطلب الآن في الموبايل */
+.btn-sm-mobile {
+    padding: 5px 10px !important;
+    font-size: 0.7rem !important;
+    border-radius: 20px !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-nav-inline .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .btn-sm-mobile {
+        padding: 6px 14px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/**************************************** Hero Section *********************************************/
+.hero-section {
+    min-height: 100vh;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    background:  url('./Assets/images/Background3.webp') center/cover no-repeat;
+}
+
+.hero-section h1 {
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero-section p {
+    max-width: 650px;
+    margin: auto;
+    opacity: 0.95;
+}
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+}
+
+.hero-section p {
+    animation-delay: 0.3s;
+}
+
+.hero-section .btn {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/* Buttons */
+.btn-primary-custom {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    box-shadow: 0 5px 15px rgba(188,108,37,0.3);
+    transition: 0.3s;
+}
+
+.btn-primary-custom:hover {
+    background-color: #8c4f1b;
+    color: white;
+    transform: translateY(-4px) scale(1.03);
+}
+
+.btn-outline-custom {
+    border: 2px solid var(--primary-color);
+    color: black;
+    border-radius: 30px;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/******************************* About Section ****************************************/
+/* سيكشن About */
+.about-section {
+    background-color: var(--accent-color); /* اللون البني الدافئ */
+    border-radius: 50px; /* لإعطاء شكل انسيابي مثل الصور التي اخترتها */
+    margin: 40px 15px; /* مسافة من الجوانب لتبدو كبطاقة */
+}
+
+/* دوائر الأيقونات */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2rem;
+    transition: all 0.4s ease;
+}
+
+.about-item:hover .icon-circle {
+    background-color: #fff;
+    color: var(--accent-color);
+    transform: rotateY(360deg); /* أنيميشن دوران لطيف */
+    border-color: #fff;
+}
+
+.about-item h6 {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.about-item p {
+    line-height: 1.4;
+}
+
+/* تحسين للموبايل */
+@media (max-width: 768px) {
+    .about-section {
+        border-radius: 30px;
+        margin: 20px 10px;
+    }
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .about-item h6 {
+        font-size: 0.9rem;
+    }
+}
+/*****************************Product section********************************************/
+#Product {
+    background-color: #f9f6f1;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+}
+/* Gallery Custom Styles */
+.cake-item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    transition: 0.4s ease;
+}
+
+.cake-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* الصورة */
+.cake-img-wrapper {
+    overflow: hidden;
+}
+
+.custom-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+.cake-item:hover .custom-img {
+    transform: scale(1.08);
+}
+
+/* البوكس البني اللي تحت */
+.cake-content {
+    background: rgba(188, 108, 37, 0.85);
+    backdrop-filter: blur(5px);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #fff;
+}
+
+.cake-content h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cake-content small {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* زرار details */
+.btn-details {
+    background: #fff;
+    color: var(--accent-color);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-details:hover {
+    background: #f5f5f5;
+    transform: scale(1.05);
+}
+
+/***************************************** menu section ********************************/
+.menu-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.05);
+    font-size: 15px;
+}
+
+.menu-row:last-child {
+    border-bottom: none;
+}
+
+.menu-row strong {
+    color: var(--accent-color);
+}
+
+.note {
+    background: rgba(0,0,0,0.04);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/**************************** Menu Preview*****************************************/
+.menu-preview-section {
+    background: linear-gradient(to bottom, #ffffff, #faf8f5);
+}
+
+.menu-preview-card {
+    max-width: 700px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: 0.4s ease;
+}
+
+.menu-preview-card:hover {
+    transform: translateY(-6px);
+}
+
+.menu-preview-card h2 {
+    color: var(--accent-color);
+    letter-spacing: 0.5px;
+}
+
+.custom-note {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(188,108,37,0.08);
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.menu-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #a55c20; /* درجة أغمق بسيطة */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/****************************** customer reviews ************************************/
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.2);
+}
+
+.italic-text {
+    font-style: italic;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* تخصيص أزرار التنقل يمين وشمال */
+.carousel-control-prev-icon-custom,
+.carousel-control-next-icon-custom {
+    color: var(--accent-color);
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.carousel-control-prev-icon-custom:hover,
+.carousel-control-next-icon-custom:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* نخلي الكنترول يغطي الكاروسيل بالكامل */
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ضبط الاتجاه عشان الموقع عربي RTL */
+.carousel-control-prev {
+    right: -70px;
+    left: auto;
+}
+
+.carousel-control-next {
+    left: -70px;
+    right: auto;
+}
+
+/* تحسين تموضع الزرار نفسه */
+.custom-nav-btn {
+    position: relative;
+}
+
+/* تصميم الزرار الدائري نفسه */
+.custom-nav-btn {
+    background-color: #fff;
+    color: var(--accent-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+    z-index: 10;
+}
+
+.custom-nav-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+
+    .carousel-control-prev {
+        right: 10px;
+    }
+
+    .carousel-control-next {
+        left: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .carousel-control-prev, 
+    .carousel-control-next {
+        width: 10%;
+    }
+    .custom-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 576px) {
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 100%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        right: 40%;
+    }
+
+    .carousel-control-next {
+        left: 40%;
+    }
+}
+
+
+/**************************************** Delivary section *********************************************/
+.delivery-wrapper {
+    background-color: var(--bg-color); /* اللون الكريمي الهادئ */
+    border-radius: 40px;
+    border: 2px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* تأثير Badge للمناطق */
+.badge-custom {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 0 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.badge-custom:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.delivery-icon-box {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* أنيميشن حركة خفيفة للأيقونة */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* تحسين شكل الأيقونات */
+.bi-geo-alt-fill, .bi-info-circle-fill {
+    color: var(--accent-color);
+}
+
+
+/************************************** Footer *******************************************/
+.footer-section {
+    background-color: #fff;
+    border-top: 3px solid var(--primary-color);
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    border-radius: 50%;
+    margin-inline-end: 15px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    padding-inline-start: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
