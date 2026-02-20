@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# هذا يخبر جوجل بموقع خريطة الموقع
+Sitemap: https://sweeteltabtabh.vercel.app/sitemap.xml
